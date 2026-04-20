@@ -275,6 +275,39 @@ body {
   line-height: 1.6;
 }
 
+/* Success Card */
+.success-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--orange);
+}
+
+.success-card ion-icon {
+  font-size: 40px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.success-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.success-card p {
+  font-size: 13px;
+  color: rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .brief-header {
