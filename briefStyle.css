@@ -1,0 +1,296 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black:  #1B1D1B;
+  --orange: #FF3F1A;
+  --teal:   #447980;
+  --blue:   #9ED2E3;
+  --white:  #ECECEC;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  color: var(--black);
+  min-height: 100vh;
+}
+
+/* Header */
+.brief-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  background: var(--black);
+}
+
+.header-left h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: -1px;
+}
+
+.header-left h1 span {
+  color: var(--orange);
+  font-size: inherit;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.header-right img {
+  width: 44px;
+  mix-blend-mode: lighten;
+}
+
+.header-right p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Form */
+.brief-form {
+  padding: 48px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Card */
+.brief-section {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.brief-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.brief-section h2 ion-icon {
+  font-size: 16px;
+  color: var(--orange);
+}
+
+/* Fields Grid */
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+/* Static Label */
+.static-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Floating Label */
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input,
+.input-wrap textarea {
+  width: 100%;
+  background: #f8f8f8;
+  border: 1.5px solid #ebebeb;
+  border-radius: 10px;
+  padding: 20px 16px 8px;
+  font-size: 14px;
+  color: var(--black);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrap input:focus,
+.input-wrap textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,63,26,0.08);
+  background: #ffffff;
+}
+
+.input-wrap input::placeholder,
+.input-wrap textarea::placeholder {
+  color: transparent;
+}
+
+.input-wrap label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: rgba(0,0,0,0.35);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* Textarea label position */
+.input-wrap textarea ~ label {
+  top: 20px;
+  transform: none;
+}
+
+/* Floating up */
+.input-wrap input:focus ~ label,
+.input-wrap input:not(:placeholder-shown) ~ label,
+.input-wrap textarea:focus ~ label,
+.input-wrap textarea:not(:placeholder-shown) ~ label {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.input-wrap textarea {
+  resize: none;
+  min-height: 90px;
+  padding-top: 24px;
+}
+
+/* Radio */
+.radio-group {
+  display: flex;
+  gap: 16px;
+  padding: 4px 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--black);
+  cursor: pointer;
+  background: #f8f8f8;
+  border: 1.5px solid #ebebeb;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+
+.radio-group label:hover {
+  border-color: var(--orange);
+}
+
+.radio-group input[type="radio"] {
+  accent-color: var(--orange);
+  width: 16px;
+  height: 16px;
+}
+
+/* Submit */
+.brief-submit {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 0 40px;
+}
+
+.brief-submit button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 18px 52px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+
+.brief-submit button ion-icon {
+  font-size: 18px;
+}
+
+.brief-submit button:hover {
+  background: var(--orange);
+}
+
+/* Brief Value thankyou page */
+.brief-value {
+  font-size: 15px;
+  color: var(--black);
+  padding: 12px 16px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  border: 1.5px solid #ebebeb;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .brief-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px 24px;
+    align-items: flex-start;
+  }
+
+  .header-left h1 { font-size: 32px; }
+  .header-right { align-items: flex-start; }
+
+  .brief-form { padding: 24px 16px; }
+
+  .fields-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: 1; }
+
+  .brief-section { padding: 28px 20px; }
+}
