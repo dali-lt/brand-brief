@@ -45,55 +45,110 @@ function downloadPDF() {
   const doc = new jsPDF();
   const orange = [255, 63, 26];
   const black  = [27, 29, 27];
+  const white  = [255, 255, 255];
   const gray   = [150, 150, 150];
+  const lightgray = [240, 240, 240];
 
-  doc.setFillColor(...orange);
-  doc.rect(0, 0, 210, 40, 'F');
-  doc.setTextColor(255, 255, 255);
+  let y = 0;
+
+  // ── Header Black ──
+  doc.setFillColor(...black);
+  doc.rect(0, 0, 210, 45, 'F');
+
+  doc.setTextColor(...white);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
-  doc.text('BRAND DISCOVERY BRIEF', 20, 25);
-  doc.setFontSize(10);
+  doc.text('BRAND DISCOVERY', 16, 20);
+
+  doc.setTextColor(...orange);
+  doc.setFontSize(22);
+  doc.text('BRIEF.', 16, 34);
+
+  doc.setTextColor(...gray);
+  doc.setFontSize(9);
   doc.setFont('helvetica', 'normal');
-  doc.text(`Date: ${data.date}`, 150, 25);
+  doc.text('Mohamed Ali Louati — Brand Identity Designer', 105, 20);
+  doc.text(`Date: ${data.date}`, 105, 30);
 
-  let y = 55;
+  y = 58;
 
+  // ── Section Function ──
   function addSection(title) {
+    // Orange left border
     doc.setFillColor(...orange);
-    doc.rect(0, y - 5, 210, 8, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(11);
+    doc.rect(16, y - 4, 3, 8, 'F');
+
+    doc.setTextColor(...orange);
+    doc.setFontSize(9);
     doc.setFont('helvetica', 'bold');
-    doc.text(title, 20, y + 1);
+    doc.text(title.toUpperCase(), 22, y + 2);
+
+    // Line
+    doc.setDrawColor(...lightgray);
+    doc.line(16, y + 6, 194, y + 6);
+
     y += 14;
   }
 
+  // ── Field Function ──
   function addField(label, value) {
+    if (y > 265) { doc.addPage(); y = 20; }
+
     doc.setTextColor(...gray);
-    doc.setFontSize(9);
+    doc.setFontSize(8);
     doc.setFont('helvetica', 'normal');
-    doc.text(label.toUpperCase(), 20, y);
-    y += 6;
+    doc.text(label.toUpperCase(), 16, y);
+    y += 5;
+
+    // Value box
+    const lines = doc.splitTextToSize(value || '—', 162);
+    const boxH = lines.length * 6 + 8;
+
+    doc.setFillColor(...lightgray);
+    doc.roundedRect(16, y, 178, boxH, 3, 3, 'F');
+
     doc.setTextColor(...black);
-    doc.setFontSize(11);
-    const lines = doc.splitTextToSize(value || '—', 170);
-    doc.text(lines, 20, y);
-    y += lines.length * 7 + 6;
-    doc.setDrawColor(...gray);
-    doc.line(20, y - 3, 190, y - 3);
-    y += 4;
-    if (y > 270) { doc.addPage(); y = 20; }
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text(lines, 22, y + 6);
+
+    y += boxH + 10;
   }
 
-  addSection('01 — CLIENT DETAILS');
+  // ── 2 fields side by side ──
+  function addFieldHalf(label, value, x) {
+    doc.setTextColor(...gray);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'normal');
+    doc.text(label.toUpperCase(), x, y);
+
+    const lines = doc.splitTextToSize(value || '—', 76);
+    const boxH = lines.length * 6 + 8;
+
+    doc.setFillColor(...lightgray);
+    doc.roundedRect(x, y + 5, 84, boxH, 3, 3, 'F');
+
+    doc.setTextColor(...black);
+    doc.setFontSize(10);
+    doc.text(lines, x + 6, y + 11);
+
+    return boxH;
+  }
+
+  // ── Section 1 ──
+  addSection('Client Details');
   addField("Client's Name", data.name);
   addField('Company Name', data.company);
-  addField('Phone', data.phone);
-  addField('Email', data.email);
+
+  // Phone + Email side by side
+  const h1 = addFieldHalf('Phone', data.phone, 16);
+  addFieldHalf('Email', data.email, 110);
+  y += h1 + 14;
+
   addField('Website', data.website);
 
-  addSection('02 — PROJECT DETAILS');
+  // ── Section 2 ──
+  addSection('Project Details');
   addField('Has a logo?', data.logo);
   addField('Tagline / CTA', data.tagline);
   addField('Style Guide', data.guide);
@@ -101,18 +156,28 @@ function downloadPDF() {
   addField('Visual cues', data.cues);
   addField('Competition', data.competition);
 
-  addSection('03 — PROJECT PARAMETERS');
+  // ── Section 3 ──
+  addSection('Project Parameters');
   addField('Goal', data.goal);
   addField('Target Audience', data.audience);
-  addField('Deadline', data.deadline);
-  addField('Budget', data.budget);
 
-  doc.setFillColor(...black);
-  doc.rect(0, 282, 210, 15, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFontSize(9);
-  doc.text('Mohamed Ali Louati — Brand Identity Designer', 20, 291);
-  doc.text('design_medali', 170, 291);
+  // Deadline + Budget side by side
+  const h2 = addFieldHalf('Deadline', data.deadline, 16);
+  addFieldHalf('Budget', data.budget, 110);
+  y += h2 + 14;
 
-  doc.save(`Brief_${data.name}.pdf`);
+  // ── Footer ──
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFillColor(...black);
+    doc.rect(0, 285, 210, 12, 'F');
+    doc.setTextColor(...white);
+    doc.setFontSize(8);
+    doc.text('Mohamed Ali Louati — Brand Identity Designer', 16, 292);
+    doc.setTextColor(...orange);
+    doc.text('@design_medali', 160, 292);
+  }
+
+  doc.save(`Brief_${data.name || 'Client'}.pdf`);
 }
