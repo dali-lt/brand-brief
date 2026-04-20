@@ -1,15 +1,13 @@
 window.jsPDF = window.jspdf.jsPDF;
 
-// قراءة البيانات من URL
 const encoded = new URLSearchParams(window.location.search).get('d');
 const data = encoded 
   ? JSON.parse(decodeURIComponent(escape(atob(encoded))))
   : {};
 
-// عرض البيانات
 document.getElementById('brief-display').innerHTML = `
   <div class="brief-section">
-    <h2>01 — Client Details</h2>
+    <h2><ion-icon name="person-outline"></ion-icon> Client Details</h2>
     <div class="fields-grid">
       <div class="field"><label>Client's Name</label><p class="brief-value">${data.name}</p></div>
       <div class="field"><label>Company</label><p class="brief-value">${data.company}</p></div>
@@ -20,7 +18,7 @@ document.getElementById('brief-display').innerHTML = `
   </div>
 
   <div class="brief-section">
-    <h2>02 — Project Details</h2>
+    <h2><ion-icon name="briefcase-outline"></ion-icon> Project Details</h2>
     <div class="fields-grid">
       <div class="field full"><label>Has a logo?</label><p class="brief-value">${data.logo}</p></div>
       <div class="field full"><label>Tagline / CTA</label><p class="brief-value">${data.tagline}</p></div>
@@ -32,7 +30,7 @@ document.getElementById('brief-display').innerHTML = `
   </div>
 
   <div class="brief-section">
-    <h2>03 — Project Parameters</h2>
+    <h2><ion-icon name="stats-chart-outline"></ion-icon> Project Parameters</h2>
     <div class="fields-grid">
       <div class="field full"><label>Goal</label><p class="brief-value">${data.goal}</p></div>
       <div class="field full"><label>Target Audience</label><p class="brief-value">${data.audience}</p></div>
