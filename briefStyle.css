@@ -1,0 +1,202 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black:  #1B1D1B;
+  --orange: #FF3F1A;
+  --teal:   #447980;
+  --blue:   #9ED2E3;
+  --white:  #ECECEC;
+}
+
+body {
+  font-family: sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
+
+/* Header */
+.brief-header {
+  background: var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px 40px;
+}
+
+.header-left h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.header-left h1 span {
+  color: var(--orange);
+  font-size: inherit;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.header-right img {
+  width: 48px;
+  mix-blend-mode: lighten;
+}
+
+.header-right p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Form */
+.brief-form {
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Section */
+.brief-section h2 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--black);
+}
+
+/* Fields Grid */
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+/* Labels */
+.field label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+
+/* Inputs */
+.field input,
+.field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--black);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-bottom-color: var(--orange);
+}
+
+.field textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+/* Radio */
+.radio-group {
+  display: flex;
+  gap: 32px;
+  padding: 10px 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: var(--orange);
+  width: 16px;
+  height: 16px;
+}
+
+/* Submit Button */
+.brief-submit {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid var(--black);
+}
+
+.brief-submit button {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 16px 48px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.brief-submit button:hover {
+  background: var(--orange);
+}
+
+.brief-value {
+  font-size: 15px;
+  color: var(--black);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .brief-header {
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 24px 32px;
+  }
+  .header-left h1 { font-size: 36px; }
+  .header-right { align-items: flex-start; }
+  .brief-form { padding: 40px 24px; }
+  .fields-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: 1; }
+}
