@@ -152,7 +152,7 @@ function downloadPDF() {
   }
 
   // Section 1
-  addSection('Client Info', '👤');
+  addSection('Client Info');
   addField("Client's Name", data.name);
   addField('Company', data.company);
   const h1 = addFieldHalf('Phone', data.phone, 16);
@@ -161,7 +161,7 @@ function downloadPDF() {
   addField('Website / Social Media', data.website);
 
   // Section 2
-  addSection('Brand Identity', '✨');
+  addSection('Brand Identity');
   const h2 = addFieldHalf('Brand Name', data.brandName, 16);
   addFieldHalf('Tagline', data.tagline, 110);
   y += h2 + 14;
@@ -170,23 +170,23 @@ function downloadPDF() {
   addField('Brand Message', data.message);
 
   // Section 3
-  addSection('Target Audience', '👥');
+  addSection('Target Audience');
   addField('Age, Gender, Lifestyle', data.audience);
   addField('Problem & Solution', data.problem);
 
   // Section 4
-  addSection('Brand Personality', '🎨');
+  addSection('Brand Personality');
   addField('Personality', data.personality);
   addField('Values', data.values);
   addField('What makes it different', data.different);
 
   // Section 5
-  addSection('Competition & Vision', '🏆');
+  addSection('Competition & Vision'');
   addField('Top 3 Competitors', data.competitors);
   addField('Vision / Future Goal', data.vision);
 
   // Section 6
-  addSection('Visual Preferences', '👁');
+  addSection('Visual Preferences');
   const h3 = addFieldHalf('Has a Logo?', data.logo, 16);
   addFieldHalf('Logo Types', data.logoTypes, 110);
   y += h3 + 14;
@@ -211,7 +211,7 @@ function downloadPDF() {
   addField('Visual Preferences', data.visual);
 
   // Section 7
-  addSection('Project Parameters', '📊');
+  addSection('Project Parameters');
   const h4 = addFieldHalf('Deadline', data.deadline, 16);
   addFieldHalf('Budget', data.budget, 110);
   y += h4 + 14;
