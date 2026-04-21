@@ -39,6 +39,7 @@ const thankURL = `${baseURL}thankyou.html?d=${encoded}`;
 }
 
 let isArabic = false;
+let isArabic = false;
 
 const translations = {
   en: {
@@ -46,29 +47,47 @@ const translations = {
     title2: 'BRIEF.',
     btn: 'AR',
 
-    // Section titles
-    s1: 'Client Details',
-    s2: 'Project Details',
-    s3: 'Project Parameters',
+    s1: 'Client Info',
+    s2: 'Brand Identity',
+    s3: 'Target Audience',
+    s4: 'Brand Personality',
+    s5: 'Competition & Vision',
+    s6: 'Visual Preferences',
+    s7: 'Project Parameters',
 
-    // Labels
     clientName: "Client's Name",
     company: 'Company Name',
     phone: 'Phone',
     email: 'Email',
-    website: 'Website',
-    logo: 'Do you have a logo?',
+    website: 'Website / Social Media',
+
+    brandName: 'Brand Name',
+    tagline: 'Brand Tagline (if exists)',
+    brandStory: 'Story Behind the Name',
+    service: 'Brand Service or Product',
+    message: 'What is your brand message to your audience?',
+
+    audience: 'Target Audience: Age, Gender, Lifestyle...',
+    problem: "What is the audience's problem? And what solution does your brand provide?",
+
+    personality: 'Brand Personality — ex: Inspirational, classy, funny...',
+    values: 'Brand Values — ex: sustainability, equality, respect...',
+    different: 'What makes your brand different from competitors?',
+
+    competitors: 'Top 3 Competitors',
+    vision: 'Vision / Future Goal of the Brand',
+
+    logoQuestion: 'Do you have a logo?',
     logoYes: 'Yes',
     logoNo: 'No',
-    tagline: 'Is there a tagline or call to action?',
-    guide: 'Is there a brand style-guide?',
-    appear: 'Where will the graphics appear?',
-    cues: 'Are there visual cues or motifs?',
-    competition: 'What competition are you benchmarking against?',
-    goal: 'Objective / Goal of the Project',
-    audience: 'Target Audience',
-    deadline: 'Deadlines / Timeline',
+    logoUpload: 'Upload your logo here',
+    logoUploadSub: 'PNG, JPG, SVG accepted',
+    logoTypeQuestion: 'What logo type do you prefer?',
+    visual: 'Any visual preferences? Brands, colors, fonts, styles you like or dislike...',
+
+    deadline: 'Deadline / Timeline',
     budget: 'Budget',
+    extra: 'Any information you\'d like to add?',
     sendBtn: 'Send Brief',
   },
   ar: {
@@ -76,29 +95,47 @@ const translations = {
     title2: 'البراند.',
     btn: 'EN',
 
-    // Section titles
     s1: 'بيانات العميل',
-    s2: 'تفاصيل المشروع',
-    s3: 'معايير المشروع',
+    s2: 'هوية البراند',
+    s3: 'الجمهور المستهدف',
+    s4: 'شخصية البراند',
+    s5: 'المنافسة والرؤية',
+    s6: 'التفضيلات البصرية',
+    s7: 'تفاصيل المشروع',
 
-    // Labels
-    clientName: 'اسم العميل',
-    company: 'اسم الشركة',
-    phone: 'الهاتف',
+    clientName: 'اسمك',
+    company: 'اسم الشركة أو النشاط',
+    phone: 'رقم الهاتف',
     email: 'البريد الإلكتروني',
-    website: 'الموقع الإلكتروني',
-    logo: 'هل عندك لوغو؟',
+    website: 'الموقع أو حساباتك على وسائل التواصل',
+
+    brandName: 'اسم العلامة التجارية',
+    tagline: 'شعار العلامة — إذا كان موجوداً',
+    brandStory: 'القصة وراء الاسم',
+    service: 'ما الخدمة أو المنتج الذي تقدمه؟',
+    message: 'ما هي رسالتك لجمهورك؟',
+
+    audience: 'الجمهور المستهدف — العمر، الجنس، نمط الحياة...',
+    problem: 'ما مشكلة جمهورك؟ وكيف يحلها براندك؟',
+
+    personality: 'تخيل براندك شخصاً — كيف تصف شخصيته؟ مثال: ملهم، أنيق، مضحك...',
+    values: 'ما القيم التي بنيت عليها براندك؟ مثال: الاحترام، الجودة، الإبداع...',
+    different: 'ما الذي يميزك عن المنافسين؟',
+
+    competitors: 'أذكر أهم 3 منافسين',
+    vision: 'ما هو هدفك المستقبلي لهذا البراند؟',
+
+    logoQuestion: 'هل عندك لوغو حالياً؟',
     logoYes: 'نعم',
     logoNo: 'لا',
-    tagline: 'هل عندك tagline أو call to action؟',
-    guide: 'هل عندك brand style-guide؟',
-    appear: 'وين بش تضهر التصاميم؟',
-    cues: 'هل عندك عناصر بصرية أو motifs؟',
-    competition: 'شنو المنافسين اللي تبي تتميز عنهم؟',
-    goal: 'الهدف من المشروع',
-    audience: 'الجمهور المستهدف',
-    deadline: 'الموعد النهائي',
-    budget: 'الميزانية',
+    logoUpload: 'ارفع لوغوك هنا',
+    logoUploadSub: 'PNG أو JPG أو SVG',
+    logoTypeQuestion: 'ما نوع اللوغو الذي يناسبك؟',
+    visual: 'هل عندك تفضيلات بصرية؟ شاركني ما يعجبك وما لا يعجبك — براندات، ألوان، خطوط، أستايلات...',
+
+    deadline: 'متى تريد إنجاز المشروع؟',
+    budget: 'ما هي ميزانيتك؟',
+    extra: 'هل هناك أي معلومات إضافية تريد إضافتها؟',
     sendBtn: 'إرسال',
   }
 };
@@ -107,45 +144,56 @@ function toggleLang() {
   isArabic = !isArabic;
   const t = isArabic ? translations.ar : translations.en;
 
-  // Direction
   document.body.dir = isArabic ? 'rtl' : 'ltr';
 
-  // Title
   document.querySelector('.header-left h1').innerHTML =
     `${t.title1}<br><span>${t.title2}</span>`;
 
-  // Lang button
   document.querySelector('.lang-btn span').textContent = t.btn;
 
-  // Section titles
   const sections = document.querySelectorAll('.brief-section h2');
   sections[0].innerHTML = `<ion-icon name="person-outline"></ion-icon> ${t.s1}`;
-  sections[1].innerHTML = `<ion-icon name="briefcase-outline"></ion-icon> ${t.s2}`;
-  sections[2].innerHTML = `<ion-icon name="stats-chart-outline"></ion-icon> ${t.s3}`;
+  sections[1].innerHTML = `<ion-icon name="sparkles-outline"></ion-icon> ${t.s2}`;
+  sections[2].innerHTML = `<ion-icon name="people-outline"></ion-icon> ${t.s3}`;
+  sections[3].innerHTML = `<ion-icon name="color-palette-outline"></ion-icon> ${t.s4}`;
+  sections[4].innerHTML = `<ion-icon name="podium-outline"></ion-icon> ${t.s5}`;
+  sections[5].innerHTML = `<ion-icon name="eye-outline"></ion-icon> ${t.s6}`;
+  sections[6].innerHTML = `<ion-icon name="stats-chart-outline"></ion-icon> ${t.s7}`;
 
-  // Labels
   document.querySelector('label[for="clientName"]').textContent = t.clientName;
   document.querySelector('label[for="company"]').textContent = t.company;
   document.querySelector('label[for="phone"]').textContent = t.phone;
   document.querySelector('label[for="email"]').textContent = t.email;
   document.querySelector('label[for="website"]').textContent = t.website;
-  document.querySelector('label[for="tagline"]').textContent = t.tagline;
-  document.querySelector('label[for="guide"]').textContent = t.guide;
-  document.querySelector('label[for="appear"]').textContent = t.appear;
-  document.querySelector('label[for="cues"]').textContent = t.cues;
-  document.querySelector('label[for="competition"]').textContent = t.competition;
-  document.querySelector('label[for="goal"]').textContent = t.goal;
-  document.querySelector('label[for="audience"]').textContent = t.audience;
-  document.querySelector('label[for="deadline"]').textContent = t.deadline;
-  document.querySelector('label[for="budget"]').textContent = t.budget;
 
-  // Static label + radio
-  document.querySelector('.static-label').textContent = t.logo;
+  document.querySelector('label[for="brandName"]').textContent = t.brandName;
+  document.querySelector('label[for="tagline"]').textContent = t.tagline;
+  document.querySelector('label[for="brandStory"]').textContent = t.brandStory;
+  document.querySelector('label[for="service"]').textContent = t.service;
+  document.querySelector('label[for="message"]').textContent = t.message;
+
+  document.querySelector('label[for="audience"]').textContent = t.audience;
+  document.querySelector('label[for="problem"]').textContent = t.problem;
+
+  document.querySelector('label[for="personality"]').textContent = t.personality;
+  document.querySelector('label[for="values"]').textContent = t.values;
+  document.querySelector('label[for="different"]').textContent = t.different;
+
+  document.querySelector('label[for="competitors"]').textContent = t.competitors;
+  document.querySelector('label[for="vision"]').textContent = t.vision;
+
+  document.querySelector('.static-label').textContent = t.logoQuestion;
   const radioLabels = document.querySelectorAll('.radio-group label');
   radioLabels[0].childNodes[1].textContent = ` ${t.logoYes}`;
   radioLabels[1].childNodes[1].textContent = ` ${t.logoNo}`;
+  document.querySelector('.logo-upload p').textContent = t.logoUpload;
+  document.querySelector('.logo-upload span').textContent = t.logoUploadSub;
+  document.querySelector('label[for="visual"]').textContent = t.visual;
 
-  // Send button
+  document.querySelector('label[for="deadline"]').textContent = t.deadline;
+  document.querySelector('label[for="budget"]').textContent = t.budget;
+  document.querySelector('label[for="extra"]').textContent = t.extra;
+
   document.querySelector('.brief-submit button').innerHTML =
     `<ion-icon name="send-outline"></ion-icon> ${t.sendBtn}`;
 }
