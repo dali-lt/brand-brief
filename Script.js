@@ -42,7 +42,7 @@ function buildAndSend(logoBase64) {
   };
 
   if (logoBase64) {
-    sessionStorage.setItem('briefLogoImage', logoBase64);
+    localStorage.setItem('briefLogoImage', logoBase64);
   }
 
   const dataWithoutImage = { ...data, logoImage: null };
