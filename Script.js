@@ -54,7 +54,7 @@ function buildAndSend(logoBase64) {
   window.open(`https://wa.me/21692131604?text=${encodeURIComponent(text)}`, '_blank');
 
   setTimeout(() => {
-    window.location.replace = thankURL;
+    window.location.replace(thankURL);
   }, 1000);
 }
 
