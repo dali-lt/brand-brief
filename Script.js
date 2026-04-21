@@ -149,3 +149,26 @@ function toggleLang() {
   document.querySelector('.brief-submit button').innerHTML =
     `<ion-icon name="send-outline"></ion-icon> ${t.sendBtn}`;
 }
+
+
+function toggleLogoUpload(radio) {
+  const upload = document.getElementById('logoUpload');
+  if (radio.value === 'yes') {
+    upload.classList.add('show');
+  } else {
+    upload.classList.remove('show');
+    document.getElementById('logoPreview').style.display = 'none';
+  }
+}
+
+function previewLogo(input) {
+  const preview = document.getElementById('logoPreview');
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
