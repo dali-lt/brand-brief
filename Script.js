@@ -1,27 +1,42 @@
 function sendBrief() {
-
-  const inputs = document.querySelectorAll('.field input[type="text"], .field input[type="email"]');
-  const textareas = document.querySelectorAll('.field textarea');
-  const logo = document.querySelector('input[name="logo"]:checked');
-
   const data = {
-  date:        new Date().toLocaleDateString(),
-  name:        document.getElementById('clientName').value,
-  company:     document.getElementById('company').value,
-  phone:       document.getElementById('phone').value,
-  email:       document.getElementById('email').value,
-  website:     document.getElementById('website').value,
-  logo:        document.querySelector('input[name="logo"]:checked')?.value || '—',
-  tagline:     document.getElementById('tagline').value,
-  guide:       document.getElementById('guide').value,
-  appear:      document.getElementById('appear').value,
-  cues:        document.getElementById('cues').value,
-  competition: document.getElementById('competition').value,
-  goal:        document.getElementById('goal').value,
-  audience:    document.getElementById('audience').value,
-  deadline:    document.getElementById('deadline').value,
-  budget:      document.getElementById('budget').value,
-};
+    date:        new Date().toLocaleDateString(),
+    name:        document.getElementById('clientName').value,
+    company:     document.getElementById('company').value,
+    phone:       document.getElementById('phone').value,
+    email:       document.getElementById('email').value,
+    website:     document.getElementById('website').value,
+    brandName:   document.getElementById('brandName').value,
+    tagline:     document.getElementById('tagline').value,
+    brandStory:  document.getElementById('brandStory').value,
+    service:     document.getElementById('service').value,
+    message:     document.getElementById('message').value,
+    audience:    document.getElementById('audience').value,
+    problem:     document.getElementById('problem').value,
+    personality: document.getElementById('personality').value,
+    values:      document.getElementById('values').value,
+    different:   document.getElementById('different').value,
+    competitors: document.getElementById('competitors').value,
+    vision:      document.getElementById('vision').value,
+    logo:        document.querySelector('input[name="logo"]:checked')?.value || '—',
+    logoTypes:   [...document.querySelectorAll('input[name="logoType"]:checked')].map(i => i.value).join(', ') || '—',
+    visual:      document.getElementById('visual').value,
+    deadline:    document.getElementById('deadline').value,
+    budget:      document.getElementById('budget').value,
+    extra:       document.getElementById('extra').value,
+  };
+
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const baseURL = window.location.href.replace('index.html', '');
+  const thankURL = `${baseURL}thankyou.html?d=${encoded}`;
+
+  const text = `Hello Med Ali! I just filled out your Brand Discovery Brief.\nView it here: ${thankURL}\n— ${data.name || 'Client'}`;
+  window.open(`https://wa.me/21692131604?text=${encodeURIComponent(text)}`, '_blank');
+
+  setTimeout(() => {
+    window.location.href = thankURL;
+  }, 1000);
+}
 
   // تحويل البيانات لـ URL
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
@@ -38,7 +53,6 @@ const thankURL = `${baseURL}thankyou.html?d=${encoded}`;
   }, 1000);
 }
 
-let isArabic = false;
 let isArabic = false;
 
 const translations = {
