@@ -181,7 +181,7 @@ function downloadPDF() {
   addField('What makes it different', data.different);
 
   // Section 5
-  addSection('Competition & Vision'');
+  addSection('Competition & Vision');
   addField('Top 3 Competitors', data.competitors);
   addField('Vision / Future Goal', data.vision);
 
