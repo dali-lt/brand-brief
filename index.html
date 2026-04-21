@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header class="brief-header">
     <div class="header-left">
       <h1>BRAND DISCOVERY<br><span>BRIEF.</span></h1>
@@ -18,19 +17,19 @@
       <p>Mohamed Ali Louati</p>
       <p>Brand Identity Designer</p>
     </div>
-
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">
-      <ion-icon name="language-outline"></ion-icon>
-      <span>AR</span>
-    </button>
   </header>
 
-  <!-- Form -->
+  <!-- Lang Button -->
+  <button class="lang-btn" onclick="toggleLang()" id="langBtn">
+    <ion-icon name="language-outline"></ion-icon>
+    <span>AR</span>
+  </button>
+
   <main class="brief-form">
 
-    <!-- Section 1 -->
+    <!-- Section 1 — Client Info -->
     <section class="brief-section">
-      <h2><ion-icon name="person-outline"></ion-icon> Client Details</h2>
+      <h2><ion-icon name="person-outline"></ion-icon> Client Info</h2>
       <div class="fields-grid">
 
         <div class="field">
@@ -64,16 +63,132 @@
         <div class="field full">
           <div class="input-wrap">
             <input type="text" id="website" placeholder=" ">
-            <label for="website">Website</label>
+            <label for="website">Website / Social Media</label>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Section 2 -->
+    <!-- Section 2 — Brand Identity -->
     <section class="brief-section">
-      <h2><ion-icon name="briefcase-outline"></ion-icon> Project Details</h2>
+      <h2><ion-icon name="sparkles-outline"></ion-icon> Brand Identity</h2>
+      <div class="fields-grid">
+
+        <div class="field">
+          <div class="input-wrap">
+            <input type="text" id="brandName" placeholder=" ">
+            <label for="brandName">Brand Name</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="input-wrap">
+            <input type="text" id="tagline" placeholder=" ">
+            <label for="tagline">Brand Tagline (if exists)</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="brandStory" placeholder=" "></textarea>
+            <label for="brandStory">Story Behind the Name</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="service" placeholder=" "></textarea>
+            <label for="service">Brand Service or Product</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="message" placeholder=" "></textarea>
+            <label for="message">What is your brand message to your audience?</label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3 — Audience -->
+    <section class="brief-section">
+      <h2><ion-icon name="people-outline"></ion-icon> Target Audience</h2>
+      <div class="fields-grid">
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="audience" placeholder=" "></textarea>
+            <label for="audience">Age, Gender, Lifestyle...</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="problem" placeholder=" "></textarea>
+            <label for="problem">What is the audience's problem? And what solution does your brand provide?</label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4 — Brand Personality -->
+    <section class="brief-section">
+      <h2><ion-icon name="color-palette-outline"></ion-icon> Brand Personality</h2>
+      <div class="fields-grid">
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="personality" placeholder=" "></textarea>
+            <label for="personality">Brand Personality (ex: Inspirational, classy, funny...)</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="values" placeholder=" "></textarea>
+            <label for="values">Brand Values (ex: sustainability, equality, respect...)</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="different" placeholder=" "></textarea>
+            <label for="different">What makes your brand different from competitors?</label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 5 — Competition -->
+    <section class="brief-section">
+      <h2><ion-icon name="podium-outline"></ion-icon> Competition & Vision</h2>
+      <div class="fields-grid">
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="competitors" placeholder=" "></textarea>
+            <label for="competitors">Top 3 Competitors</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="vision" placeholder=" "></textarea>
+            <label for="vision">Vision / Future Goal of the Brand</label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 6 — Visual Preferences -->
+    <section class="brief-section">
+      <h2><ion-icon name="eye-outline"></ion-icon> Visual Preferences</h2>
       <div class="fields-grid">
 
         <div class="field full">
@@ -85,66 +200,36 @@
         </div>
 
         <div class="field full">
-          <div class="input-wrap">
-            <textarea id="tagline" placeholder=" "></textarea>
-            <label for="tagline">Is there a tagline or call to action?</label>
+          <label class="static-label">What logo type do you prefer?</label>
+          <div class="radio-group wrap">
+            <label><input type="checkbox" name="logoType" value="Wordmark"> Wordmark</label>
+            <label><input type="checkbox" name="logoType" value="Monogram"> Monogram</label>
+            <label><input type="checkbox" name="logoType" value="Pictogram"> Pictogram</label>
+            <label><input type="checkbox" name="logoType" value="Abstract"> Abstract</label>
+            <label><input type="checkbox" name="logoType" value="Mascot"> Mascot</label>
+            <label><input type="checkbox" name="logoType" value="Emblem"> Emblem</label>
           </div>
         </div>
 
         <div class="field full">
           <div class="input-wrap">
-            <textarea id="guide" placeholder=" "></textarea>
-            <label for="guide">Is there a brand style-guide?</label>
-          </div>
-        </div>
-
-        <div class="field full">
-          <div class="input-wrap">
-            <textarea id="appear" placeholder=" "></textarea>
-            <label for="appear">Where will the graphics appear?</label>
-          </div>
-        </div>
-
-        <div class="field full">
-          <div class="input-wrap">
-            <textarea id="cues" placeholder=" "></textarea>
-            <label for="cues">Are there visual cues or motifs?</label>
-          </div>
-        </div>
-
-        <div class="field full">
-          <div class="input-wrap">
-            <textarea id="competition" placeholder=" "></textarea>
-            <label for="competition">What competition are you benchmarking against?</label>
+            <textarea id="visual" placeholder=" "></textarea>
+            <label for="visual">Any visual preferences? (colors, fonts, brands you like...)</label>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Section 3 -->
+    <!-- Section 7 — Project Parameters -->
     <section class="brief-section">
       <h2><ion-icon name="stats-chart-outline"></ion-icon> Project Parameters</h2>
       <div class="fields-grid">
 
-        <div class="field full">
-          <div class="input-wrap">
-            <textarea id="goal" placeholder=" "></textarea>
-            <label for="goal">Objective / Goal of the Project</label>
-          </div>
-        </div>
-
-        <div class="field full">
-          <div class="input-wrap">
-            <textarea id="audience" placeholder=" "></textarea>
-            <label for="audience">Target Audience</label>
-          </div>
-        </div>
-
         <div class="field">
           <div class="input-wrap">
             <input type="text" id="deadline" placeholder=" ">
-            <label for="deadline">Deadlines / Timeline</label>
+            <label for="deadline">Deadline / Timeline</label>
           </div>
         </div>
 
@@ -155,6 +240,13 @@
           </div>
         </div>
 
+        <div class="field full">
+          <div class="input-wrap">
+            <textarea id="extra" placeholder=" "></textarea>
+            <label for="extra">Any information you'd like to add?</label>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -162,7 +254,7 @@
     <div class="brief-submit">
       <button onclick="sendBrief()">
         <ion-icon name="send-outline"></ion-icon>
-        Send Brief
+        <span>Send Brief</span>
       </button>
     </div>
 
@@ -170,8 +262,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="Script.js"></script>
+  <script src="Lang.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
-</html>
+            </html>
