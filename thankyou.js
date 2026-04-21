@@ -5,7 +5,7 @@ const data = encoded
   ? JSON.parse(decodeURIComponent(escape(atob(encoded))))
   : {};
 
-data.logoImage = sessionStorage.getItem('briefLogoImage') || null;
+data.logoImage = localStorage.getItem('briefLogoImage') || null;
 
 document.getElementById('brief-display').innerHTML = `
 
