@@ -439,3 +439,56 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Logo Upload */
+.logo-upload {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: 2px dashed #ebebeb;
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  text-align: center;
+}
+
+.logo-upload:hover {
+  border-color: var(--orange);
+}
+
+.logo-upload.show {
+  display: flex;
+}
+
+.logo-upload ion-icon {
+  font-size: 36px;
+  color: var(--orange);
+}
+
+.logo-upload p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.logo-upload span {
+  font-size: 11px;
+  color: rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+}
+
+.logo-upload input[type="file"] {
+  display: none;
+}
+
+#logoPreview {
+  display: none;
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 8px;
+}
