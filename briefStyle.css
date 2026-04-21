@@ -357,3 +357,85 @@ body {
 
   .brief-section { padding: 28px 20px; }
 }
+
+/* Logo Types Grid */
+.logo-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.logo-card input[type="checkbox"] {
+  display: none;
+}
+
+.logo-card-inner {
+  border: 2px solid #ebebeb;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f8f8f8;
+}
+
+.logo-card-inner:hover {
+  border-color: var(--orange);
+}
+
+.logo-card input:checked ~ .logo-card-inner {
+  border-color: var(--orange);
+  background: #fff5f2;
+}
+
+.logo-card-inner img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.logo-card-info {
+  padding: 12px;
+  position: relative;
+}
+
+.logo-card-check {
+  position: absolute;
+  top: -12px;
+  right: 10px;
+  background: var(--orange);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.logo-card input:checked ~ .logo-card-inner .logo-card-check {
+  display: flex;
+}
+
+.logo-type-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.logo-type-desc {
+  font-size: 11px;
+  color: rgba(0,0,0,0.4);
+  margin-top: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logo-types {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
