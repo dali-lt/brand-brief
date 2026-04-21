@@ -42,7 +42,7 @@ function buildAndSend(logoBase64) {
   };
 
   if (logoBase64) {
-    localStorage.setItem('briefLogoImage', logoBase64);
+    sessionStorage.setItem('briefLogoImage', logoBase64);
   }
 
   const dataWithoutImage = { ...data, logoImage: null };
@@ -54,7 +54,7 @@ function buildAndSend(logoBase64) {
   window.open(`https://wa.me/21692131604?text=${encodeURIComponent(text)}`, '_blank');
 
   setTimeout(() => {
-    window.location.href = thankURL;
+    window.location.replace = thankURL;
   }, 1000);
 }
 
