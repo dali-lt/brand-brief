@@ -41,7 +41,12 @@ function buildAndSend(logoBase64) {
     extra:       document.getElementById('extra').value,
   };
 
-  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  if (logoBase64) {
+    sessionStorage.setItem('briefLogoImage', logoBase64);
+  }
+
+  const dataWithoutImage = { ...data, logoImage: null };
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(dataWithoutImage))));
   const baseURL = window.location.href.replace('index.html', '');
   const thankURL = `${baseURL}thankyou.html?d=${encoded}`;
 
