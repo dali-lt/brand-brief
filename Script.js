@@ -38,21 +38,6 @@ function sendBrief() {
   }, 1000);
 }
 
-  // تحويل البيانات لـ URL
-  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-const baseURL = window.location.href.replace('index.html', '');
-const thankURL = `${baseURL}thankyou.html?d=${encoded}`;
-  
-  // WhatsApp
-  const text = `Hello Med Ali! I just filled out your Brand Discovery Brief.\nView it here: ${thankURL}\n— ${data.name || 'Client'}`;
-  window.open(`https://wa.me/21692131604?text=${encodeURIComponent(text)}`, '_blank');
-
-  // تحويل للـ thank you page
-  setTimeout(() => {
-    window.location.href = thankURL;
-  }, 1000);
-}
-
 let isArabic = false;
 
 const translations = {
