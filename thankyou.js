@@ -105,7 +105,6 @@ function downloadPDF() {
 
   y = 58;
 
-  function addSection(title, icon) {
   function addSection(title) {
   if (y > 260) { doc.addPage(); y = 20; }
   doc.setFillColor(...orange);
