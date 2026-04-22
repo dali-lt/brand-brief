@@ -83,6 +83,8 @@ const translations = {
     visual: 'Any visual preferences? Brands, colors, fonts, styles you like or dislike...',
     deadline: 'Deadline / Timeline', budget: 'Budget',
     extra: "Any information you'd like to add?", sendBtn: 'Send Brief',
+    logoReminder: 'Send your logo on WhatsApp!',
+    logoReminderSub: 'After submitting, please send your logo file directly in the chat.',
   },
   ar: {
     title1: 'استكشاف', title2: 'البراند.', btn: 'EN',
@@ -107,6 +109,8 @@ const translations = {
     visual: 'هل عندك تفضيلات بصرية؟ شاركني ما يعجبك وما لا يعجبك — براندات، ألوان، خطوط، أستايلات...',
     deadline: 'متى تريد إنجاز المشروع؟', budget: 'ما هي ميزانيتك؟',
     extra: 'هل هناك أي معلومات إضافية تريد إضافتها؟', sendBtn: 'إرسال',
+    logoReminder: '!أرسل لوغوك على واتساب',
+    logoReminderSub: 'بعد الإرسال، من فضلك أرسل ملف اللوغو مباشرة في المحادثة.',
   }
 };
 
@@ -145,8 +149,8 @@ function toggleLang() {
   const radioLabels = document.querySelectorAll('.radio-group label');
   radioLabels[0].childNodes[1].textContent = ` ${t.logoYes}`;
   radioLabels[1].childNodes[1].textContent = ` ${t.logoNo}`;
-  document.querySelector('.logo-upload p').textContent = t.logoUpload;
-  document.querySelector('.logo-upload span').textContent = t.logoUploadSub;
+  document.querySelector('.reminder-title').textContent = t.logoReminder;
+  document.querySelector('.reminder-sub').textContent = t.logoReminderSub;
   document.querySelector('label[for="visual"]').textContent = t.visual;
   document.querySelector('label[for="deadline"]').textContent = t.deadline;
   document.querySelector('label[for="budget"]').textContent = t.budget;
@@ -161,7 +165,6 @@ function toggleLogoUpload(radio) {
     upload.classList.add('show');
   } else {
     upload.classList.remove('show');
-    document.getElementById('logoPreview').style.display = 'none';
   }
 }
 
