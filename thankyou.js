@@ -106,17 +106,18 @@ function downloadPDF() {
   y = 58;
 
   function addSection(title, icon) {
-    if (y > 260) { doc.addPage(); y = 20; }
-    doc.setFillColor(...orange);
-    doc.rect(16, y - 4, 3, 8, 'F');
-    doc.setTextColor(...orange);
-    doc.setFontSize(9);
-    doc.setFont('helvetica', 'bold');
-    doc.text(`${icon}  ${title.toUpperCase()}`, 22, y + 2);
-    doc.setDrawColor(...lightgray);
-    doc.line(16, y + 6, 194, y + 6);
-    y += 14;
-  }
+  function addSection(title) {
+  if (y > 260) { doc.addPage(); y = 20; }
+  doc.setFillColor(...orange);
+  doc.rect(16, y - 4, 3, 8, 'F');
+  doc.setTextColor(...orange);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'bold');
+  doc.text(title.toUpperCase(), 22, y + 2);
+  doc.setDrawColor(...lightgray);
+  doc.line(16, y + 6, 194, y + 6);
+  y += 14;
+}
 
   function addField(label, value) {
     if (y > 265) { doc.addPage(); y = 20; }
