@@ -37,7 +37,7 @@ function buildAndSend(logoBase64) {
     logoImage:   logoBase64,
     visual:      document.getElementById('visual').value,
     deadline:    document.getElementById('deadline').value,
-    budget:      document.getElementById('budget').value,
+    budget:      document.querySelector('input[name="budget"]:checked')?.value || '—',
     extra:       document.getElementById('extra').value,
   };
 
