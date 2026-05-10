@@ -165,6 +165,9 @@ const budgetValues = isArabic
 budgetSpans.forEach((span, i) => {
   if (budgetValues[i]) span.textContent = budgetValues[i];
 });
+
+// Logo type question
+document.querySelectorAll('.static-label')[1].textContent = t.logoTypeQuestion;
 }
 
 function toggleLogoUpload(radio) {
