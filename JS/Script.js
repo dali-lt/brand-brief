@@ -153,7 +153,7 @@ function toggleLang() {
   document.querySelector('.reminder-sub').textContent = t.logoReminderSub;
   document.querySelector('label[for="visual"]').textContent = t.visual;
   document.querySelector('label[for="deadline"]').textContent = t.deadline;
-  document.querySelector('label[for="budget"]').textContent = t.budget;
+  document.getElementById('budgetLabel').textContent = t.budget;
   document.querySelector('label[for="extra"]').textContent = t.extra;
   document.querySelector('.brief-submit button').innerHTML =
     `<ion-icon name="send-outline"></ion-icon> ${t.sendBtn}`;
