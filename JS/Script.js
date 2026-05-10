@@ -157,6 +157,14 @@ function toggleLang() {
   document.querySelector('label[for="extra"]').textContent = t.extra;
   document.querySelector('.brief-submit button').innerHTML =
     `<ion-icon name="send-outline"></ion-icon> ${t.sendBtn}`;
+
+  const budgetSpans = document.querySelectorAll('.budget-radio span');
+const budgetValues = isArabic
+  ? ['أقل من 100 دينار', '100–200 دينار', '200–300 دينار', '+300 دينار', 'نتفاهم']
+  : ['Under 100 TND', '100–200 TND', '200–300 TND', '300+ TND', "Let's discuss"];
+budgetSpans.forEach((span, i) => {
+  if (budgetValues[i]) span.textContent = budgetValues[i];
+});
 }
 
 function toggleLogoUpload(radio) {
