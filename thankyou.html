@@ -1,61 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brief Received</title>
-  <link rel="stylesheet" href="CSS/briefStyle.css">
-  <link rel="icon" type="image/png" href="Images/MyFavicon.png">
-  <style>
-    .logo-preview-display {
-      max-width: 200px;
-      max-height: 120px;
-      object-fit: contain;
-      border-radius: 8px;
-      border: 1.5px solid #ebebeb;
-      padding: 8px;
-      background: #f8f8f8;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <header class="brief-header">
-    <div class="header-left">
-      <h1>BRIEF<br><span>RECEIVED.</span></h1>
-    </div>
-    <div class="header-right">
-      <img src="Images/Logopic.png" alt="Logo">
-      <p>Mohamed Ali Louati</p>
-      <p>Brand Identity Designer</p>
-    </div>
-  </header>
-
-  <main class="brief-form">
-
-    <div class="success-card">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
-      <div>
-        <h3>Brief Received!</h3>
-        <p>Thank you. Med Ali will get back to you shortly.</p>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brief Received</title>
+    <link rel="stylesheet" href="CSS/briefStyle.css" />
+    <link rel="icon" type="image/png" href="Images/MyFavicon.png" />
+    <style>
+      .logo-preview-display {
+        max-width: 200px;
+        max-height: 120px;
+        object-fit: contain;
+        border-radius: 8px;
+        border: 1.5px solid #ebebeb;
+        padding: 8px;
+        background: #f8f8f8;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="brief-header">
+      <div class="header-left">
+        <h1>BRIEF<br /><span>RECEIVED.</span></h1>
       </div>
-    </div>
+      <div class="header-right">
+        <img src="Images/Logopic.png" alt="Logo" />
+        <p>Mohamed Ali Louati</p>
+        <p>Brand Identity Designer</p>
+      </div>
+    </header>
 
-    <div id="brief-display"></div>
+    <main class="brief-form">
+      <div class="success-card">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <div>
+          <h3>Brief Received!</h3>
+          <p>Thank you. Med Ali will get back to you shortly.</p>
+        </div>
+      </div>
 
-    <div class="brief-submit">
-      <button onclick="downloadPDF()">
-        <ion-icon name="download-outline"></ion-icon>
-        Download PDF
-      </button>
-    </div>
+      <div id="brief-display"></div>
 
-  </main>
+      <div class="brief-submit">
+        <button onclick="downloadPDF()">
+          <ion-icon name="download-outline"></ion-icon>
+          Download PDF
+        </button>
+      </div>
+    </main>
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="JS/thankyou.js"></script>
-
-</body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="JS/thankyou.js"></script>
+  </body>
 </html>

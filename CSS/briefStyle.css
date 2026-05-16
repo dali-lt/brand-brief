@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("../Fonts/TT-Firs-Neue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("../Fonts/TT-Firs-Neue-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("../Fonts/TT-Firs-Neue-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -6,18 +30,34 @@
 }
 
 :root {
-  --black:  #1B1D1B;
-  --orange: #FF3F1A;
-  --teal:   #447980;
-  --blue:   #9ED2E3;
-  --white:  #ECECEC;
+  --black: #1b1d1b;
+  --orange: #ff3f1a;
+  --teal: #447980;
+  --blue: #9ed2e3;
+  --white: #ececec;
 }
 
 body {
-  font-family: sans-serif;
-  background: #f0f0f0;
+  font-family: "TT Firs Neue", sans-serif;
+  background: var(--white);
   color: var(--black);
   min-height: 100vh;
+}
+
+[dir="rtl"] {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] label,
+[dir="rtl"] button,
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] span {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  text-align: right;
 }
 
 /* Header */
@@ -27,6 +67,56 @@ body {
   align-items: center;
   padding: 40px 60px;
   background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.brief-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../Images/9390.png") center/cover no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.12;
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    );
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+}
+
+.header-left,
+.header-right {
+  z-index: 1;
 }
 
 .header-left h1 {
@@ -34,7 +124,7 @@ body {
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--white);
   letter-spacing: -1px;
 }
 
@@ -59,7 +149,7 @@ body {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .lang-btn {
@@ -79,13 +169,13 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 16px rgba(255,63,26,0.3);
+  box-shadow: 0 4px 16px rgba(255, 63, 26, 0.3);
   transition: all 0.2s;
 }
 
 .lang-btn:hover {
   background: var(--black);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .lang-btn ion-icon {
@@ -107,7 +197,7 @@ body {
   background: #ffffff;
   border-radius: 20px;
   padding: 40px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
 }
 
 .brief-section h2 {
@@ -151,7 +241,7 @@ body {
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.35);
+  color: rgba(0, 0, 0, 0.35);
   font-weight: 600;
   margin-bottom: 8px;
   display: block;
@@ -172,14 +262,16 @@ body {
   font-size: 14px;
   color: var(--black);
   outline: none;
-  font-family: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: "TT Firs Neue", sans-serif;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .input-wrap input:focus,
 .input-wrap textarea:focus {
   border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(255,63,26,0.08);
+  box-shadow: 0 0 0 3px rgba(255, 63, 26, 0.08);
   background: #ffffff;
 }
 
@@ -194,7 +286,7 @@ body {
   left: 16px;
   transform: translateY(-50%);
   font-size: 14px;
-  color: rgba(0,0,0,0.35);
+  color: rgba(0, 0, 0, 0.35);
   letter-spacing: 0;
   text-transform: none;
   font-weight: 400;
@@ -313,7 +405,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
   border-left: 4px solid var(--orange);
 }
 
@@ -334,7 +426,7 @@ body {
 
 .success-card p {
   font-size: 13px;
-  color: rgba(0,0,0,0.4);
+  color: rgba(0, 0, 0, 0.4);
   letter-spacing: 0.5px;
 }
 
@@ -347,15 +439,27 @@ body {
     align-items: flex-start;
   }
 
-  .header-left h1 { font-size: 32px; }
-  .header-right { align-items: flex-start; }
+  .header-left h1 {
+    font-size: 32px;
+  }
+  .header-right {
+    align-items: flex-start;
+  }
 
-  .brief-form { padding: 24px 16px; }
+  .brief-form {
+    padding: 24px 16px;
+  }
 
-  .fields-grid { grid-template-columns: 1fr; }
-  .field.full { grid-column: 1; }
+  .fields-grid {
+    grid-template-columns: 1fr;
+  }
+  .field.full {
+    grid-column: 1;
+  }
 
-  .brief-section { padding: 28px 20px; }
+  .brief-section {
+    padding: 28px 20px;
+  }
 }
 
 /* Logo Types Grid */
@@ -429,7 +533,7 @@ body {
 
 .logo-type-desc {
   font-size: 11px;
-  color: rgba(0,0,0,0.4);
+  color: rgba(0, 0, 0, 0.4);
   margin-top: 4px;
 }
 
@@ -446,7 +550,11 @@ body {
   gap: 16px;
   margin-top: 16px;
   padding: 20px 24px;
-  background: linear-gradient(135deg, rgba(255,63,26,0.08), rgba(255,63,26,0.03));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 63, 26, 0.08),
+    rgba(255, 63, 26, 0.03)
+  );
   border: 1.5px solid var(--orange);
   border-radius: 14px;
   animation: fadeIn 0.3s ease;
@@ -483,15 +591,21 @@ body {
 
 .reminder-sub {
   font-size: 12px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   line-height: 1.7;
   text-transform: none;
   letter-spacing: 0;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Budget Options */
