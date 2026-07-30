@@ -83,6 +83,7 @@ const translations = {
     visual: 'Any visual preferences? Brands, colors, fonts, styles you like or dislike...',
     deadline: 'Deadline / Timeline', budget: 'Budget',
     extra: "Any information you'd like to add?", sendBtn: 'Send Brief',
+    nextBtn: 'Next', backBtn: 'Back',
     logoReminder: 'Send your logo on WhatsApp!',
     logoReminderSub: 'After submitting, please send your logo file directly in the chat.',
   },
@@ -109,6 +110,7 @@ const translations = {
     visual: 'هل عندك تفضيلات بصرية؟ شاركني ما يعجبك وما لا يعجبك — براندات، ألوان، خطوط، أستايلات...',
     deadline: 'متى تريد إنجاز المشروع؟', budget: 'ما هي ميزانيتك؟',
     extra: 'هل هناك أي معلومات إضافية تريد إضافتها؟', sendBtn: 'إرسال',
+    nextBtn: 'التالي', backBtn: 'رجوع',
     logoReminder: '!أرسل لوغوك على واتساب',
     logoReminderSub: 'بعد الإرسال، من فضلك أرسل ملف اللوغو مباشرة في المحادثة.',
   }
@@ -155,8 +157,12 @@ function toggleLang() {
   document.querySelector('label[for="deadline"]').textContent = t.deadline;
   document.getElementById('budgetLabel').textContent = t.budget;
   document.getElementById('extraLabel').textContent = t.extra;
-  document.querySelector('.brief-submit button').innerHTML =
-    `<ion-icon name="send-outline"></ion-icon> ${t.sendBtn}`;
+  document.getElementById('stepBack').innerHTML =
+    `<ion-icon name="arrow-back-outline"></ion-icon><span>${t.backBtn}</span>`;
+  const isLastStep = currentStep === totalSteps - 1;
+  document.getElementById('stepNext').innerHTML = isLastStep
+    ? `<ion-icon name="send-outline"></ion-icon><span>${t.sendBtn}</span>`
+    : `<span>${t.nextBtn}</span><ion-icon name="arrow-forward-outline"></ion-icon>`;
 
   const budgetSpans = document.querySelectorAll('.budget-radio span');
 const budgetValues = isArabic
@@ -177,4 +183,49 @@ function toggleLogoUpload(radio) {
   } else {
     upload.classList.remove('show');
   }
+}
+
+// Step Wizard
+const briefSections = document.querySelectorAll('.brief-section');
+const progressFillEl = document.getElementById('progressFill');
+const progressLabelEl = document.getElementById('progressLabel');
+const stepBackBtn = document.getElementById('stepBack');
+const stepNextBtn = document.getElementById('stepNext');
+const totalSteps = briefSections.length;
+let currentStep = 0;
+
+function showStep(i) {
+  briefSections.forEach((s, idx) => s.classList.toggle('active', idx === i));
+
+  stepBackBtn.classList.toggle('hidden', i === 0);
+
+  const isLast = i === totalSteps - 1;
+  const t = isArabic ? translations.ar : translations.en;
+  stepNextBtn.innerHTML = isLast
+    ? `<ion-icon name="send-outline"></ion-icon><span>${t.sendBtn}</span>`
+    : `<span>${t.nextBtn}</span><ion-icon name="arrow-forward-outline"></ion-icon>`;
+
+  progressFillEl.style.width = `${((i + 1) / totalSteps) * 100}%`;
+  progressLabelEl.textContent = `Section ${i + 1} / ${totalSteps}`;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function stepNext() {
+  if (currentStep === totalSteps - 1) {
+    sendBrief();
+    return;
+  }
+  currentStep++;
+  showStep(currentStep);
+}
+
+function stepPrev() {
+  if (currentStep === 0) return;
+  currentStep--;
+  showStep(currentStep);
+}
+
+if (totalSteps && progressFillEl && progressLabelEl && stepBackBtn && stepNextBtn) {
+  showStep(0);
 }

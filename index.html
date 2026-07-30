@@ -24,6 +24,12 @@
     </div>
   </header>
 
+  <!-- Progress Bar -->
+  <div class="progress-track" id="progressTrack">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <span class="progress-label" id="progressLabel">Section 1 / 7</span>
+
   <!-- Lang Button -->
   <button class="lang-btn" onclick="toggleLang()" id="langBtn">
     <ion-icon name="language-outline"></ion-icon>
@@ -334,15 +340,24 @@
       </div>
     </section>
 
-    <!-- Button -->
-    <div class="brief-submit">
-      <button onclick="sendBrief()">
-        <ion-icon name="send-outline"></ion-icon>
-        <span>Send Brief</span>
-      </button>
-    </div>
-
   </main>
+
+  <!-- Step Navigation -->
+  <div class="step-nav">
+    <button
+      type="button"
+      class="step-btn back"
+      id="stepBack"
+      onclick="stepPrev()"
+    >
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back</span>
+    </button>
+    <button type="button" class="step-btn next" id="stepNext" onclick="stepNext()">
+      <span>Next</span>
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </button>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="JS/Script.js"></script>
