@@ -324,6 +324,7 @@ body {
   gap: 32px;
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 /* Card */
