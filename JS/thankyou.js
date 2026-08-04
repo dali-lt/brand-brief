@@ -225,7 +225,7 @@ function downloadPDF() {
     doc.rect(0, 285, 210, 12, 'F');
     doc.setTextColor(...white);
     doc.setFontSize(8);
-    doc.text('Mohamed Ali Louati — Brand Identity Designer', 16, 292);
+    doc.text('Mohamed Ali Louati — Graphic & Brand Identity Designer', 16, 292);
     doc.setTextColor(...orange);
     doc.text('@design_medali', 160, 292);
   }
